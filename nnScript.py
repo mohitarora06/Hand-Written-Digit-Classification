@@ -35,8 +35,7 @@ def sigmoid(z):
 
 def preprocess():
     """ Input:
-     Although this function doesn't have any input, you are required to load
-     the MNIST data set from file 'mnist_all.mat'.
+      MNIST data set from file 'mnist_all.mat'.
 
      Output:
      train_data: matrix of training set. Each row of train_data contains 
@@ -62,10 +61,7 @@ def preprocess():
     
     mat = loadmat('/home/mohit/Downloads/ML/basecode/mnist_all.mat') #loads the MAT object as a Dictionary
     
-    #Pick a reasonable size for validation data
-    
-    
-    #Your code here
+    #Pick a reasonable size for validation data. Here I have taken 1000 per digit
     
     #file.write('\n preprocess Started')
     train_data = np.array([])
@@ -172,12 +168,6 @@ def nnObjFunction(params, *args):
     obj_val = 0  
     
     
-    #Your code here
-    #
-    #
-    #
-    #
-    #
    
     output= np.array([])
     n= (training_data.shape[0],1)
@@ -224,9 +214,9 @@ def nnObjFunction(params, *args):
     #print obj_val        
     
     
-    #Make sure you reshape the gradient matrices to a 1D array. for instance if your gradient matrices are grad_w1 and grad_w2
+    #Make sure you reshape the gradient matrices to a 1D array. for instance if your gradient matrices are final_error_at_hidden and final_error_at_output
     #you would use code similar to the one below to create a flat array
-    #obj_grad = np.concatenate((grad_w1.flatten(), grad_w2.flatten()),0)
+    #obj_grad = np.concatenate((final_error_at_hidden.flatten(), grad_w2.final_error_at_output()),0)
     obj_grad = np.array([])
     obj_grad= np.concatenate((final_error_at_hidden.flatten(), final_error_at_output.flatten()),0)
     #print obj_grad
@@ -253,7 +243,6 @@ def nnPredict(w1,w2,data):
     % label: a column vector of predicted labels""" 
     
     labels = np.array([])
-    #Your code here
     n= (data.shape[0],1)
     columnSize= np.ones(n)
     data= np.concatenate((data,columnSize),1)
